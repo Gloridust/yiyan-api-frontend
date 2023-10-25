@@ -3,12 +3,12 @@
 <head>
     <title>yiyan-api-frontend</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="config.js"></script>
 </head>
 <body>
     <h1>文心一言前端交互</h1>
-    <!-- 固定cookie值 -->
-    <input type="hidden" id="cookie" value="
-    BAIDUID=AF31FB5FD37A0F88202E7FF3E64278C3:FG=1; BAIDUID_BFESS=AF31FB5FD37A0F88202E7FF3E64278C3:FG=1; Hm_lvt_01e907653ac089993ee83ed00ef9c2f3=1697205527; __bid_n=18b2955249699845f9a539; BDUSS=ZZaFZOU1VPSkpyfnM1Q2tDfkxpMzFCV0QzNzE1MGY5MC13fm43MWtQfkE3VmxsSUFBQUFBJCQAAAAAAAAAAAEAAAD1MmfUR2xvcmlkdXN0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBgMmXAYDJlZ2; BDUSS_BFESS=ZZaFZOU1VPSkpyfnM1Q2tDfkxpMzFCV0QzNzE1MGY5MC13fm43MWtQfkE3VmxsSUFBQUFBJCQAAAAAAAAAAAEAAAD1MmfUR2xvcmlkdXN0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBgMmXAYDJlZ2; ZD_ENTRY=google; Hm_lpvt_01e907653ac089993ee83ed00ef9c2f3=1698248190; ab_sr=1.0.1_MDg4NTQzY2QzZjFmMjA4MmI5MDc5ODgwZWY0MDhmNWQxZjJiYTY3ODNjZWUxMmI5NjgwMzQxMjhkMzM5MjE1ZmNlMDRhMWNlYzc1MDU1ODdlYjZiZTNkNDE4NmYzMjI5MDQ4Y2U5ZTQyNzE4NGQyNTNkOGMxMTUwNGIxNzkxZGI0ZGRmNmRjZDE5NzA5NzZkY2MwNDc5ZDlhZjIzYzhlODc4MmIxYmJlZGI3MzExOTdjNGYyMzlmNGJjYTZiYWFk; XFT=EOs37Wk/CvipSE1mCw2DK5MdP7NpPdwjDuCye6WV0u4=; XFI=6612c940-734c-11ee-a796-01121aea7fe3; XFCS=4AD4AA64595787BB0C38B16D075070019C3D57CD0C024668630F7AAE839EB2BE; RT="z=1&dm=baidu.com&si=9e6e65b2-e215-44c7-b25d-abc1a9148c01&ss=lo5x4hgb&sl=1&tt=299&bcn=https%3A%2F%2Ffclog.baidu.com%2Flog%2Fweirwood%3Ftype%3Dperf"">
+    <!-- Cookie内容已经从config.js中引入 -->
+    <input type="hidden" id="cookie">
     <br>
     <textarea id="prompt" placeholder="输入提问内容"></textarea>
     <br>
@@ -24,6 +24,9 @@
             const additionalTextInput = document.getElementById("additionalText");
             const responseTextarea = document.getElementById("response");
             const submitButton = document.getElementById("submitButton");
+
+            // 设置cookie的值
+            cookieInput.value = cookie; // 这里的"cookie"来自于config.js文件
 
             submitButton.addEventListener("click", function () {
                 const cookie = cookieInput.value;
